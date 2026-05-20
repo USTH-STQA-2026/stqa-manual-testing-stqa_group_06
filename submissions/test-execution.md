@@ -5,10 +5,10 @@
 
 | Thông tin | |
 |---|---|
-| **Nhóm** | `<!-- Tên nhóm -->` |
-| **Ngày thực thi** | `<!-- DD/MM/YYYY -->` |
-| **Trình duyệt** | Chrome `<!-- version -->` |
-| **Hệ điều hành** | `<!-- Windows / macOS / Linux -->` |
+| **Nhóm** | STQA_Group_06 |
+| **Ngày thực thi** | 19/05/2026 |
+| **Trình duyệt** | Chrome 148 |
+| **Hệ điều hành** | macOS |
 
 ---
 

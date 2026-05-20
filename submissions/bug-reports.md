@@ -6,8 +6,8 @@
 
 | Thông tin | |
 |---|---|
-| **Nhóm** | `<!-- Tên nhóm -->` |
-| **Ngày báo cáo** | `<!-- DD/MM/YYYY -->` |
+| **Nhóm** | STQA_Group_06 |
+| **Ngày báo cáo** | 19/05/2026 |
 
 ---
 
@@ -27,8 +27,8 @@
 `<!-- Mô tả hành vi lỗi cụ thể -->`
 
 **Môi trường:**
-- Trình duyệt: Chrome `<!-- version -->`
-- Hệ điều hành: `<!-- OS -->`
+- Trình duyệt: Chrome 148
+- Hệ điều hành: macOS
 - Ngôn ngữ giao diện: Tiếng Việt
 
 **Điều kiện tiên quyết:**
