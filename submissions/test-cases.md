@@ -108,20 +108,15 @@
 | Mã TC | Mục tiêu kiểm thử | Tiền điều kiện | Bước thực hiện | Dữ liệu đầu vào | Kết quả mong đợi | REQ | Kỹ thuật |
 | ----- | ------------------------------------------ | ----------------------------- | ------------------------------------------------------------ | ----------------------------------------------- | --------------------------------- | ------ | -------------- |
 | TC-01 | Login successfully with valid account | Account exists | 1. Open login screen 2. Enter email/password 3. Click Login | ba.nguyen@email.com / password123 | Login successfully | REQ-01 | EP |
-| TC-02 | Login with non-existent account | Account exists | Execute login | binh.pham12@email.com / password123 | Display "Member not found" | REQ-01 | EP |
+| TC-02 | Login with non-existent account | Account does not exist | Execute login | binh.pham12@email.com / password123 | Display "Member not found" | REQ-01 | EP |
 | TC-03 | Login with incorrect password | Account exists | Execute login | binh.pham@email.com / passwork123 | Display "Incorrect password" | REQ-01 | EP |
 | TC-04 | Check empty inputs | None | Leave email/password blank then login | " " / " " | Display "Please enter email and password" | REQ-01 | EP |
 | TC-05 | Display book list | Logged in | None | None | Book list is displayed | REQ-02 | Functional |
 | TC-06 | Book status update on borrow/return | Logged in | None | None | Status updates immediately | REQ-02 | Functional |
-| TC-07 | Search book by title | Logged in (MEM002 or LIB001) (Nguyễn Học Bá or Nguyễn Thủ Thư) | 1. Enter keyword in the search box
-2. Observe displayed book list | Keyword = "Flutter" | List displays BOOK001 "Lập trình Flutter cơ bản" | REQ-03 | EP |
-| TC-08 | Search book by author's name | Logged in | 1. Enter keyword in the search box
-2. Observe displayed book list | Keyword = "Hùng" | List displays BOOK002 "Cấu trúc dữ liệu và giải thuật" | REQ-03 | EP |
-| TC-09 | Search book by combining search + category filter | Logged in  | 1. Enter keyword "Hùng" in the search box
-2. Select category "Công nghệ" | Keyword = "Hùng", "Công nghệ" | List displays BOOK002 "Cấu trúc dữ liệu và giải thuật" | REQ-03 | EP |
-| TC-10 | Search is case-insensitive | Logged in  | 1. Enter keyword "Python" in the search box
-2. Clear and enter keyword "python" in the search box | Keyword = "Python"
-Keyword = "python" | List displays BOOK009 "Nhập môn lập trình Python" | REQ-03 | EP |
+| TC-07 | Search book by title | Logged in (MEM002 or LIB001) (Nguyễn Học Bá or Nguyễn Thủ Thư) | 1. Enter keyword in the search box 2. Observe displayed book list | Keyword = "Flutter" | List displays BOOK001 "Lập trình Flutter cơ bản" | REQ-03 | EP |
+| TC-08 | Search book by author's name | Logged in | 1. Enter keyword in the search box 2. Observe displayed book list | Keyword = "Hùng" | List displays BOOK002 "Cấu trúc dữ liệu và giải thuật" | REQ-03 | EP |
+| TC-09 | Search book by combining search + category filter | Logged in  | 1. Enter keyword "Hùng" in the search box 2. Select category "Công nghệ" | Keyword = "Hùng", "Công nghệ" | List displays BOOK002 "Cấu trúc dữ liệu và giải thuật" | REQ-03 | EP |
+| TC-10 | Search is case-insensitive | Logged in  | 1. Enter keyword "Python" in the search box 2. Clear and enter keyword "python" in the search box | Keyword = "Python", "python" | List displays BOOK009 "Nhập môn lập trình Python" | REQ-03 | EP |
 | TC-11 | Search for non-existent book | Logged in | Search book | “ABCXYZ” | No results found | REQ-03 | EP |
 | TC-12 | Search without Vietnamese accents | Logged in | Search book | “lap trinh flutter” | List displays BOOK001 "Lập trình Flutter cơ bản" | REQ-03 | EP |
 | TC-13 | Borrow book successfully | Logged in with Active member, Available book | Select Borrow | MEM001 + BOOK001 | Borrow successfully | REQ-04 | EP |
@@ -129,7 +124,7 @@ Keyword = "python" | List displays BOOK009 "Nhập môn lập trình Python" | R
 | TC-15 | Borrow 3rd book | Member has borrowed 2 books | Click "Borrow" on BOOK005 "Trí tuệ nhân tạo đại cương" | Books borrowed before test: 2
 Test borrow book: BOOK005 | Borrow successfully | REQ-04 | BVA |
 | TC-16 | Borrow 4th book | Member MEM006 borrow 3 books BOOK001, BOOK002, BOOK005 | Click "Borrow" on BOOK008 "Mạng máy tính" | Books borrowed before test: 3
-Test borrow book: BOOK008 | Display message: "Borrow sucessfully"  | REQ-04 | EP |
+Test borrow book: BOOK008 | Display message: "Maximum borrow limit reached (3 books)" | REQ-04 | EP |
 | TC-17 | Borrow book after session timeout | Session expired | Borrow book | BOOK001 | User is redirected to login page | REQ-04 | Security Testing |
 | TC-18 | Check member status (Expired) | Member, Available book | Borrow book | Member expired | Notify member account expired | REQ-04 | EP |
 | TC-19 | Check member status (Suspended) | Member, Available book | Borrow book | Member suspended | Notify member account suspended | REQ-04 | EP |
@@ -144,9 +139,9 @@ Test borrow book: BOOK008 | Display message: "Borrow sucessfully"  | REQ-04 | EP
 | TC-28 | Add member with duplicate email | Email already exists | Add Member | existing@gmail.com | Display duplicate email error | REQ-07 | EP |
 | TC-29 | Librarian views all borrow records | Logged in as Librarian | Open Borrow Records | LIB001 | Display all records | REQ-08 | Authorization |
 | TC-30 | Member views another member's borrow record | Logged in as Member | Query record | MEM002 views MEM003 | Access denied | REQ-08 | Authorization |
-| TC-31 | Display correct record status (Borrowing) | "Borrowing" record exists | Open borrow record | BR003 | Display “Borrowing” | REQ-08 | State Testing |
-| TC-32 | Display correct record status (Returned) | "Returned" record exists | Open borrow record | BR004 | Display “Returned” | REQ-08 | State Testing |
-| TC-33 | Display correct record status (Overdue) | "Overdue" record exists | Open borrow record | BR005 | Display “Overdue” | REQ-08 | State Testing |
+| TC-31 | Display correct record status "Borrowing" | "Borrowing" record exists | Open borrow record | BR003 | Display "Borrowing" | REQ-08 | State Testing |
+| TC-32 | Display correct record status "Returned" | "Returned" record exists | Open borrow record | BR004 | Display “Returned” | REQ-08 | State Testing |
+| TC-33 | Display correct record status "Overdue" | "Overdue" record exists | Open borrow record | BR005 | Display “Overdue” | REQ-08 | State Testing |
 
 
 ---
