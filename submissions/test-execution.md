@@ -1,4 +1,4 @@
-<img width="2435" height="1600" alt="image" src="https://github.com/user-attachments/assets/2f3e5da9-ecb9-4059-9749-3340f4c12aec" /># Test Execution — Kết quả thực thi kiểm thử
+># Test Execution — Kết quả thực thi kiểm thử
 
 > **Hướng dẫn**: Chạy từng TC trên hệ thống https://stqa.rbc.vn, ghi lại kết quả thực tế.
 > Kết luận: **Pass** (kết quả đúng), **Fail** (kết quả sai → tạo bug report), **Blocked** (không thực hiện được vì lỗi khác chặn), **Not Run** (chưa chạy).
