@@ -33,22 +33,22 @@
 | TC-15 | Borrow Limit | Allow borrowing the 3rd book | Borrow successful | Pass | <img width="2435" height="1600" alt="image" src="https://github.com/user-attachments/assets/de0b2dff-e8d6-40a2-82af-737fa18e82fd" />| None |
 | TC-16 | Borrow Limit | Reject borrowing the 4th book | Borrow successfully | Fail | <img width="2435" height="1600" alt="image" src="https://github.com/user-attachments/assets/01dd3928-33eb-47ba-84e4-059729ac5cfa" />| None |
 | TC-17 | Session Security | Redirect expired session to login page | User redirected correctly | Pass | <img width="2435" height="1600" alt="image" src="https://github.com/user-attachments/assets/42632d1e-3bd6-4646-8318-37923b8983e6" />| None |
-| TC-18 | Member Validation | Notify expired member account | Correct notification displayed | Pass | Screenshot of notification | None |
-| TC-19 | Member Validation | Notify suspended member account | Correct notification displayed | Pass | Screenshot of notification | None |
-| TC-20 | Return Book | Return succeeds and book becomes available | Return processed correctly | Pass | Screenshot of updated status | None |
-| TC-21 | Return Book | Reject invalid return request | Return rejected correctly | Pass | Screenshot of error message | None |
-| TC-22 | Overdue Handling | Display overdue warning | Warning displayed correctly | Pass | Screenshot of overdue warning | None |
+| TC-18 | Member Validation | Notify expired member account | Correct notification displayed | Pass |<img width="1911" height="153" alt="image" src="https://github.com/user-attachments/assets/4fcf696e-af48-4384-af9c-5e10cb5b7743" />| None |
+| TC-19 | Member Validation | Notify suspended member account | Correct notification displayed | Pass | <img width="1911" height="162" alt="image" src="https://github.com/user-attachments/assets/b630df41-3ecf-43cf-a5c7-e3cdf7457018" />| None |
+| TC-20 | Return Book | Return succeeds and book becomes available | Return processed correctly | Pass | <img width="1913" height="442" alt="image" src="https://github.com/user-attachments/assets/093e6664-2fff-475b-bfb8-d1beca863898" />| None |
+| TC-21 | Return Book | Reject invalid return request | Return rejected correctly | Pass |<img width="1899" height="141" alt="image" src="https://github.com/user-attachments/assets/f65021df-2454-4841-b5d9-e276984b48dc" />| None |
+| TC-22 | Overdue Handling | Display overdue warning | Warning displayed correctly | Pass | <img width="1907" height="247" alt="image" src="https://github.com/user-attachments/assets/78cca06f-c24f-43a1-a3bd-59887b3a7f46" />| None |
 | TC-23 | Overdue Check | Record not marked overdue when dueDate = today | System incorrectly marks record as Overdue | Fail | Screenshot of overdue status | BUG-03 |
-| TC-24 | Authorization | Librarian can view all overdue records | All overdue records displayed | Pass | Screenshot of overdue records page | None |
+| TC-24 | Authorization | Librarian can view all overdue records | All overdue records displayed | Pass |<img width="1917" height="263" alt="image" src="https://github.com/user-attachments/assets/44a59bb3-506f-403b-8459-eb774cd29b5e" />| None |
 | TC-25 | Authorization | Member only views own overdue records | Only member records displayed | Pass | Screenshot of member overdue page | None |
-| TC-26 | Member Management | Member created successfully | Member added successfully | Pass | Screenshot of created member | None |
-| TC-27 | Member Management | Display email validation error | Validation displayed correctly | Pass | Screenshot of validation message | None |
-| TC-28 | Member Management | Reject duplicate email | Duplicate email error displayed | Pass | Screenshot of error message | None |
-| TC-29 | Borrow Records | Librarian views all borrow records | All records displayed correctly | Pass | Screenshot of borrow records page | None |
-| TC-30 | Authorization | Reject unauthorized record access | Access denied displayed | Pass | Screenshot of access denied message | None |
-| TC-31 | Record Status | Display status "Borrowing" correctly | Status displayed correctly | Pass | Screenshot of record status | None |
-| TC-32 | Record Status | Display status "Returned" correctly | Status displayed correctly | Pass | Screenshot of record status | None |
-| TC-33 | Record Status | Display status "Overdue" correctly | Status displayed correctly | Pass | Screenshot of record status | None |
+| TC-26 | Member Management | Member created successfully | Member added successfully | Fail | <img width="1919" height="913" alt="image" src="https://github.com/user-attachments/assets/9bed1100-6509-4bf7-9264-1ec5805b096e" />| None |
+| TC-27 | Member Management | Display email validation error | Validation displayed correctly | Pass | <img width="1825" height="823" alt="image" src="https://github.com/user-attachments/assets/50eb1c71-28de-4f7b-bb68-b1627eca7c41" />| None |
+| TC-28 | Member Management | Reject duplicate email | Duplicate email error displayed | Fail | <img width="983" height="527" alt="image" src="https://github.com/user-attachments/assets/e519159c-86a2-4a49-af80-3415aebd15f9" />| None |
+| TC-29 | Borrow Records | Librarian views all borrow records | All records displayed correctly | Pass | <img width="1919" height="702" alt="image" src="https://github.com/user-attachments/assets/fcadc47e-f9d7-4c6d-be0b-59078189b8e0" />| None |
+| TC-30 | Authorization | Reject unauthorized record access | Access denied displayed | Fail | <img width="1902" height="780" alt="image" src="https://github.com/user-attachments/assets/126c2257-373f-4b4f-9ac2-fc6311dc53f7" />| None |
+| TC-31 | Record Status | Display status "Borrowing" correctly | Status displayed correctly | Pass | <img width="1912" height="285" alt="image" src="https://github.com/user-attachments/assets/438a529f-23e7-4b74-a7bf-1bcb826aa182" />| None |
+| TC-32 | Record Status | Display status "Returned" correctly | Status displayed correctly | Pass | <img width="1913" height="468" alt="image" src="https://github.com/user-attachments/assets/c2e41cb2-113d-43ce-b9d0-b4d2b44471e0" />| None |
+| TC-33 | Record Status | Display status "Overdue" correctly | Status displayed correctly | Fail |<img width="1919" height="776" alt="image" src="https://github.com/user-attachments/assets/18579df7-ad16-489d-b04a-14d9f61453b4" />| None |
 
 
 ## Tổng hợp kết quả
