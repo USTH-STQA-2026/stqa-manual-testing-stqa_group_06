@@ -99,20 +99,24 @@
 
 ## Bước 2: Test Cases
 
-| Mã TC | Mục tiêu kiểm thử | Tiền điều kiện | Bước thực hiện | Dữ liệu đầu vào | Kết quả mong đợi | REQ | Kỹ thuật |
-| ----- | ------------------------------------------ | ----------------------------- | ------------------------------------------------------------ | ----------------------------------------------- | --------------------------------- | ------ | -------------- |
 ## REQ-01: Log In
+| Test Case ID | Test Objective | Pre-condition | Test Steps | Test Data | Expected Result | Requirement | Test Technique |
+| ----- | ------------------------------------------ | ----------------------------- | ------------------------------------------------------------ | ----------------------------------------------- | --------------------------------- | ------ | -------------- |
 | TC-01 | Login successfully with valid account | Account exists | 1. Open login screen 2. Enter email/password 3. Click Login | ba.nguyen@email.com / password123 | Login successfully | REQ-01 | EP |
 | TC-02 | Login with non-existent account | Account does not exist | Execute login | binh.pham12@email.com / password123 | Display "Member not found" | REQ-01 | EP |
 | TC-03 | Login with incorrect password | Account exists | Execute login | binh.pham@email.com / passwork123 | Display "Incorrect password" | REQ-01 | EP |
 | TC-04 | Check empty inputs | None | Leave email/password blank then login | " " / " " | Display "Please enter email and password" | REQ-01 | EP |
 
 ## REQ-02: View Books
+| Test Case ID | Test Objective | Pre-condition | Test Steps | Test Data | Expected Result | Requirement | Test Technique |
+| ----- | ------------------------------------------ | ----------------------------- | ------------------------------------------------------------ | ----------------------------------------------- | --------------------------------- | ------ | -------------- |
 | TC-05 | Display all books list | Logged in |None | None | Book list is displayed | REQ-02 | Functional |
 | TC-06 | Display complete book information | User is logged in | 1. Open Book List page</br> 2. Select a book | BOOK001 | System displays book title, author, category, publication year, and status (Available/Borrowed) correctly | REQ-02 | Functional |
 | TC-07 | Book status update on borrow/return | Logged in | 1.Select button + on BOOK001 "Lập trình Flutter cơ bản"</br>2.Confirm "Borrow"</br>3.Go to Borrow/Return and click "Return book" | Logged in with "Active" member | Status updates from "Borrowing" to "Returned" immediately | REQ-02 | Functional |
 
 ## REQ-03: Search Books
+| Test Case ID | Test Objective | Pre-condition | Test Steps | Test Data | Expected Result | Requirement | Test Technique |
+| ----- | ------------------------------------------ | ----------------------------- | ------------------------------------------------------------ | ----------------------------------------------- | --------------------------------- | ------ | -------------- |
 | TC-08 | Search book by title | Logged in (MEM002 or LIB001) (Nguyễn Học Bá or Nguyễn Thủ Thư) | 1. Enter keyword in the search box</br> 2. Observe displayed book list | Keyword = "Flutter" | List displays BOOK001 "Lập trình Flutter cơ bản" | REQ-03 | EP |
 | TC-09 | Search book by author's name | Logged in | 1. Enter keyword in the search box</br> 2. Observe displayed book list | Keyword = "Hùng" | List displays BOOK002 "Cấu trúc dữ liệu và giải thuật" | REQ-03 | EP |
 | TC-10 | Search book by combining search + category filter | Logged in  | 1. Enter keyword "Hùng" in the search box<br>2. Select category "Công nghệ" | Keyword = "Hùng", "Công nghệ" | List displays BOOK002 "Cấu trúc dữ liệu và giải thuật" | REQ-03 | EP |
@@ -121,6 +125,8 @@
 | TC-13 | Search without Vietnamese accents | Logged in | Search book | “lap trinh flutter” | List displays BOOK001 "Lập trình Flutter cơ bản" | REQ-03 | EP |
 
 ## REQ-04: Borrow Books
+| Test Case ID | Test Objective | Pre-condition | Test Steps | Test Data | Expected Result | Requirement | Test Technique |
+| ----- | ------------------------------------------ | ----------------------------- | ------------------------------------------------------------ | ----------------------------------------------- | --------------------------------- | ------ | -------------- |
 | TC-14 | Borrow book successfully | Logged in with Active member, Available book | Select Borrow | MEM001 + BOOK001 | Borrow successfully | REQ-04 | EP |
 | TC-15 | Reject borrowing already Borrowed book | BOOK003 is currently borrowed | Borrow BOOK003 | MEM001 + BOOK003 | Reject borrowing | REQ-04 | EP |
 | TC-16 | Verify borrow rejection for "Lost" book | Logged in as MEM002 | Locate "BOOK007" (Status: Lost) | Book: "BOOK007" | The "+" borrow button is completely hidden/disabled and status is "Lost" | REQ-04 | EP |
@@ -131,6 +137,8 @@
 | TC-21 | Borrow book after session timeout | Session expired | Borrow book | BOOK001 | User is redirected to login page | REQ-04 | Security Testing |
 
 ## REQ-05 & REQ-06: Return & Overdue Check
+| Test Case ID | Test Objective | Pre-condition | Test Steps | Test Data | Expected Result | Requirement | Test Technique |
+| ----- | ------------------------------------------ | ----------------------------- | ------------------------------------------------------------ | ----------------------------------------------- | --------------------------------- | ------ | -------------- |
 | TC-22 | Return book successfully | Member is borrowing the book | Select Return | MEM003 return BOOK003 | Return successfully, book becomes Available | REQ-05 | EP |
 | TC-23 | Return book not belonging to member | Member did not borrow that book | Return book | MEM001 returns BOOK007 | Reject book return | REQ-05 | EP |
 | TC-24 | Return overdue book | Overdue book | Return book | returnDate > dueDate | Display overdue warning | REQ-05 | BVA |
@@ -139,11 +147,15 @@
 | TC-27 | Member only views their own overdue records | Logged in as Member | Check Overdue | MEM002 | Only display overdue records of MEM002 | REQ-06 | Authorization |
 
 ## REQ-07: Member Record
+| Test Case ID | Test Objective | Pre-condition | Test Steps | Test Data | Expected Result | Requirement | Test Technique |
+| ----- | ------------------------------------------ | ----------------------------- | ------------------------------------------------------------ | ----------------------------------------------- | --------------------------------- | ------ | -------------- |
 | TC-28 | Add member with valid email | Logged in as Librarian | Add Member | user@domain.com | Create member successfully | REQ-07 | EP |
 | TC-29 | Add member with email missing '.' | Logged in as Librarian | Add Member | user@domaincom | Display email error | REQ-07 | EP |
 | TC-30 | Add member with duplicate email | Email already exists | Add Member | existing@gmail.com | Display duplicate email error | REQ-07 | EP |
 
 ## REQ-08: Borrow Record
+| Test Case ID | Test Objective | Pre-condition | Test Steps | Test Data | Expected Result | Requirement | Test Technique |
+| ----- | ------------------------------------------ | ----------------------------- | ------------------------------------------------------------ | ----------------------------------------------- | --------------------------------- | ------ | -------------- |
 | TC-31 | Librarian views all borrow records | Logged in as Librarian | Open Borrow Records | LIB001 | Display all records | REQ-08 | Authorization |
 | TC-32 | Member views another member's borrow record | Logged in as Member | Query record | MEM002 views MEM004 | Access denied | REQ-08 | Authorization |
 | TC-33 | Prevent members from accessing and modifying other members' borrow records | Logged in as MEM006 | 1. Open another member's borrow record URL<br>2. Attempt to edit or return the borrowed book | MEM003 accesses borrow record of MEM006 | Access denied and no modification allowed | REQ-08 | Authorization Testing |
