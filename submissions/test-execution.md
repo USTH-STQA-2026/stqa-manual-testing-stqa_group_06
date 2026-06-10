@@ -13,10 +13,9 @@
 ---
 
 ## Kết quả chi tiết
-
-## REQ-01: Log in
 | TC ID | Functional Group | Expected Result (Summary) | Actual Result | Conclusion | Evidence | Bug |
 |---|---|---|---|---|---|---|
+## REQ-01: Log In
 | TC-01 | Login | User logs in successfully with valid credentials | Login successful and dashboard displayed | Pass | <img width="2435" height="1600" alt="image" src="https://github.com/user-attachments/assets/7b3eab0a-11a3-424d-8a8d-dc5aa68ef0ba" />| None |
 | TC-02 | Login | Display "Member not found" message | Correct error message displayed | Pass |<img width="2435" height="1600" alt="image" src="https://github.com/user-attachments/assets/9f3eddd4-6bb7-46cc-a96b-a8de6ca86432" />| None |
 | TC-03 | Login | Display "Incorrect password" message | Correct error message displayed | Pass | <img width="2435" height="1600" alt="image" src="https://github.com/user-attachments/assets/f9bab5d2-eff6-4b3b-b000-e54bc6254cc1" />| None |

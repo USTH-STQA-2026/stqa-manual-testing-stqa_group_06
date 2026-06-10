@@ -99,9 +99,9 @@
 
 ## Bước 2: Test Cases
 
-## REQ-01: Log in
 | Mã TC | Mục tiêu kiểm thử | Tiền điều kiện | Bước thực hiện | Dữ liệu đầu vào | Kết quả mong đợi | REQ | Kỹ thuật |
 | ----- | ------------------------------------------ | ----------------------------- | ------------------------------------------------------------ | ----------------------------------------------- | --------------------------------- | ------ | -------------- |
+## REQ-01: Log In
 | TC-01 | Login successfully with valid account | Account exists | 1. Open login screen 2. Enter email/password 3. Click Login | ba.nguyen@email.com / password123 | Login successfully | REQ-01 | EP |
 | TC-02 | Login with non-existent account | Account does not exist | Execute login | binh.pham12@email.com / password123 | Display "Member not found" | REQ-01 | EP |
 | TC-03 | Login with incorrect password | Account exists | Execute login | binh.pham@email.com / passwork123 | Display "Incorrect password" | REQ-01 | EP |
