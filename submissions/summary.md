@@ -40,8 +40,8 @@
 
 | Mức độ | Số lượng | Bug IDs |
 | ----- | :---: | ----- |
-| High | 6 | BUG-02, BUG-03, BUG-04, BUG-05, BUG-06, BUG-07 |
-| Medium | 1 | BUG-01 |
+| High | 4 | BUG-02, BUG-05, BUG-06, BUG-07 |
+| Medium | 3 | BUG-01, BUG-03, BUG-04 |
 | Low | 0 | None |
 
 ---
@@ -60,7 +60,6 @@
 ---
 
 ## 4. Phân tích chất lượng phần mềm
-
 ### 4.1. Điểm mạnh
 ----Authentication Security: The login infrastructure functions properly, securely authorizing credentials and catching blank inputs.
 ----Basic Catalog Integrity: Basic browsing operations, database loading, detailed item summaries, and standard keyword queries operate with consistent stability.

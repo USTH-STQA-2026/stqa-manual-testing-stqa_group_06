@@ -162,7 +162,7 @@ System displays “Invalid Email” for valid email format during member creatio
 - This prevents librarians from creating new members and affects member management functionality
 
 **Mức độ**
-- High
+- Medium
 
 **Minh chứng:**
 <img width="2530" height="1380" alt="image" src="https://github.com/user-attachments/assets/7cfb2c6a-f517-4c71-b0c0-a2f72a17b6a6" />
@@ -217,7 +217,7 @@ System allows member creation with email missing “.” in domain instead of di
 - This affects data quality and may cause failures in notifications and member communication
 
 **Mức độ**
-- High
+- Medium
 
 **Minh chứng:**
 <img width="2536" height="1392" alt="image" src="https://github.com/user-attachments/assets/60fee26a-97ae-4799-b444-99a02d9835c6" />
