@@ -55,7 +55,7 @@ Category filter is case-sensitive and returns different results for uppercase an
 - May cause users to believe books are missing from the system
 
 **Mức độ**
-Medium
+- Medium
 
 **Minh chứng:**
 
@@ -118,7 +118,7 @@ Search keyword is ignored when combining Search and Category Filter
 - The Search and Filter functions do not work together as expected
 
 **Mức độ**
-Medium
+- Medium
 
 **Minh chứng:**
 
@@ -174,10 +174,10 @@ System allows borrowing books beyond the maximum borrowing limit instead of reje
 - Users can borrow more books than permitted, causing inaccurate borrowing records and reducing control over library resources.
 
 **Mức độ**
-High
+- High
 
 **Minh chứng:**
-<img width="2435" height="1600" alt="image" src="https://github.com/user-attachments/assets/01dd3928-33eb-47ba-84e4-059729ac5cfa" />
+<img width="2435" height="1600" alt="image" src="https://github.com/user-attachments/assets/01dd3928-33eb-47ba-84e4-059729ac5cfa" /><img width="2544" height="1322" alt="image" src="https://github.com/user-attachments/assets/37adddac-7c95-44e3-aa1c-b70e2d68d9fd" />
 
 **Đề xuất xử lý:**
 - Add validation before creating a borrowing transaction.
@@ -234,7 +234,7 @@ System displays incorrect notification message for expired member account during
 - May increase support requests and confusion when resolving account issues
 
 **Mức độ**
-Medium
+- Medium
 
 **Minh chứng:**
 
@@ -290,7 +290,7 @@ System displays “Invalid Email” for valid email format during member creatio
 - This prevents librarians from creating new members and affects member management functionality
 
 **Mức độ**
-Medium
+- Medium
 
 **Minh chứng:**
 <img width="2530" height="1380" alt="image" src="https://github.com/user-attachments/assets/7cfb2c6a-f517-4c71-b0c0-a2f72a17b6a6" />
@@ -345,7 +345,7 @@ System allows member creation with email missing “.” in domain instead of di
 - This affects data quality and may cause failures in notifications and member communication
 
 **Mức độ**
-Medium
+- Medium
 
 **Minh chứng:**
 <img width="2536" height="1392" alt="image" src="https://github.com/user-attachments/assets/60fee26a-97ae-4799-b444-99a02d9835c6" /><img width="2546" height="1393" alt="image" src="https://github.com/user-attachments/assets/591abe73-759d-492f-a2d4-b3aa0bd34352" />
@@ -398,7 +398,7 @@ System allows members to view other members’ borrowing records instead of deny
 - Unauthorized users can access data that should be private, affecting confidentiality and system security
 
 **Mức độ**
-High
+- High
 
 **Minh chứng:**
 <img width="1919" height="869" alt="image" src="https://github.com/user-attachments/assets/ddebbaaf-e29c-4f17-9fdd-ea5e20574870" />
@@ -459,7 +459,7 @@ System allows members to access and modify other members’ borrowing records
 - Users can alter records that do not belong to them.
 
 **Mức độ**
-High
+- High
 
 **Minh chứng:**
 <img width="1919" height="926" alt="image" src="https://github.com/user-attachments/assets/45538c62-555c-44a3-bfca-8eaca023df2c" />
@@ -527,7 +527,7 @@ System displays book status as “Borrowing” but no corresponding borrow recor
     + Data consistency and auditing
 
 **Mức độ**
-Medium 
+- Medium 
 
 **Minh chứng:**
 <img width="1888" height="131" alt="image" src="https://github.com/user-attachments/assets/5d50a834-7a27-42f0-b818-fea0bbd9d2e3" /><img width="1919" height="822" alt="image" src="https://github.com/user-attachments/assets/0a840fe7-85ae-498b-a395-7cbbafce7851" />
