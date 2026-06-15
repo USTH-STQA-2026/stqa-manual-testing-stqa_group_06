@@ -15,13 +15,13 @@
 
 | Chỉ số | Giá trị |
 | ----- | ----- |
-| Total Test Cases | 37 |
-| Pass | 30 |
-| Fail | 7 |
+| Total Test Cases | 41 |
+| Pass | 32 |
+| Fail | 9 |
 | Blocked | 0 |
 | Not Run | 0 |
-| Pass Rate | 81.08% |
-| Bugs Detected | 7 |
+| Pass Rate | 78.05% |
+| Bugs Detected | 9 |
 
 ### Phân bổ theo nhóm chức năng
 
@@ -29,11 +29,11 @@
 | ----- | :---: | :---: | :---: | :---: | ----- |
 | REQ-01: System Login | 4 | 4 | 0 | 0 | Functions smoothly, correctly blocks invalid accounts. |
 | REQ-02: View Book List | 3 | 3 | 0 | 0 | Displays the complete book list and statuses accurately. |
-| REQ-03: Book Search & Filter | 6 | 5 | 1 | 1 | Fails to search when using Vietnamese keywords without accents. |
-| REQ-04: Book Borrowing | 8 | 7 | 1 | 1 | Logic flaw allows borrowing a 4th book exceeding the limit. |
+| REQ-03: Book Search & Filter | 8 | 5 | 2 | 2 |  |
+| REQ-04: Book Borrowing | 8 | 6 | 2 | 2 |  |
 | REQ-05: Book Returning | 3 | 3 | 0 | 0 | Successfully processes returns and updates book status. |
-| REQ-06: Overdue Check & Handling | 3 | 2 | 1 | 1 | Miscalculates the overdue status when dueDate equals currentDate. |
-| REQ-07: Member Management | 3 | 1 | 2 | 2 | Poor data validation infrastructure allows corrupted profile processing. |
+| REQ-06: Overdue Check & Handling | 4 | 4 | 0 | 0 |  |
+| REQ-07: Member Management | 4 | 2 | 2 | 2 | Poor data validation infrastructure allows corrupted profile processing. |
 | REQ-08: Borrow Record Query | 7 | 4 | 3 | 2 | Critical authorization leak exposes private member logs to cross-user access. |
 
 ### Phân bổ bug theo mức độ

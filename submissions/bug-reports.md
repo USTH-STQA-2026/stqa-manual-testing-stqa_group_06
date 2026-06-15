@@ -10,10 +10,10 @@
 
 | Thuộc tính | Chi tiết |
 |-----------|---------|
-| **Mã lỗi** | BUG-01 |
+| **Mã lỗi** |   |
 | **TC liên quan** | TC-13 |
 | **REQ liên quan** | REQ-03 |
-| **Mức độ** | Medium |
+| **Mức độ** | Low |
 | **Người phát hiện** | Nguyễn Khắc Trường |
 | **Ngày phát hiện** | 22/05/2026 |
 | **Trạng thái** | Open |
@@ -50,7 +50,7 @@ System does not display books when searching without Vietnamese accents
 - This reduces search usability and negatively affects user experience, especially for users who type without Vietnamese input methods
 
 **Mức độ**
-- Medium
+- Low
 
 **Minh chứng:**
 <img width="2435" height="1600" alt="image" src="https://github.com/user-attachments/assets/c64349ef-47b9-4427-8845-83a2652444e1" />
@@ -65,7 +65,7 @@ System does not display books when searching without Vietnamese accents
 
 | Thuộc tính | Chi tiết |
 |-----------|---------|
-| **Mã lỗi** | BUG-02 |
+| **Mã lỗi** | BUG-01 |
 | **TC liên quan** | TC-18 |
 | **REQ liên quan** | REQ-04 |
 | **Mức độ** | High |
