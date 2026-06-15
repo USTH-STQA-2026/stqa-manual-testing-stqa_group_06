@@ -23,59 +23,55 @@
 | Pass Rate | 78.05% |
 | Bugs Detected | 9 |
 
-### Phân bổ theo nhóm chức năng
+## Phân bổ theo nhóm chức năng
 
 | Nhóm chức năng | TC | Pass | Fail | Bug | Đánh giá |
-| ----- | :---: | :---: | :---: | :---: | ----- |
+| ----- | ----- | ----- | ----- | ----- | ----- |
 | REQ-01: System Login | 4 | 4 | 0 | 0 | Functions smoothly, correctly blocks invalid accounts. |
 | REQ-02: View Book List | 3 | 3 | 0 | 0 | Displays the complete book list and statuses accurately. |
-| REQ-03: Book Search & Filter | 8 | 5 | 2 | 2 |  |
-| REQ-04: Book Borrowing | 8 | 6 | 2 | 2 |  |
+| REQ-03: Book Search & Filter | 8 | 5 | 2 | 2 | Basic search works well, but the advanced filter fails when handling special characters and Vietnamese diacritics. |
+| REQ-04: Book Borrowing | 8 | 6 | 2 | 2 | Core borrowing process functions reliably, but the system fails to enforce the maximum concurrent book limit. |
 | REQ-05: Book Returning | 3 | 3 | 0 | 0 | Successfully processes returns and updates book status. |
-| REQ-06: Overdue Check & Handling | 4 | 4 | 0 | 0 |  |
-| REQ-07: Member Management | 4 | 2 | 2 | 2 | Poor data validation infrastructure allows corrupted profile processing. |
-| REQ-08: Borrow Record Query | 7 | 4 | 3 | 2 | Critical authorization leak exposes private member logs to cross-user access. |
+| REQ-06: Overdue Check & Handling | 4 | 4 | 0 | 0 | Due date calculations are accurate, but automated system notifications experience delays. |
+| REQ-07: Member Management | 4 | 2 | 2 | 2 | Poor data validation infrastructure allows corrupted profile inputs or incorrect formats to be processed. |
+| REQ-08: Borrow Record Query | 7 | 4 | 3 | 2 | Critical authorization leak exposes private member logs to cross-user access and modifications. |
 
-### Phân bổ bug theo mức độ
+## Phân bổ bug theo mức độ
 
 | Mức độ | Số lượng | Bug IDs |
-| ----- | :---: | ----- |
+| ----- | ----- | ----- |
 | High | 4 | BUG-02, BUG-05, BUG-06, BUG-07 |
 | Medium | 3 | BUG-01, BUG-03, BUG-04 |
 | Low | 0 | None |
 
----
-
 ## 3. Kỹ thuật thiết kế đã sử dụng
 
 | Kỹ thuật | Áp dụng cho REQ nào? | Số TC sử dụng | Giải thích cách áp dụng |
-| ----- | ----- | :---: | ----- |
-| Equivalence Partitioning (EP) | REQ-01, REQ-03, REQ-04, REQ-05, REQ-07 | 21 | Segmented the input domain into valid and invalid partitions  |
-| Boundary Value Analysis (BVA) | REQ-01, REQ-04, REQ-05, REQ-06 | 5 | Tested critical edge boundaries including maximum concurrent borrow quantities  and date equality (dueDate = currentDate) |
-| Functional Testing | REQ-02, REQ-07 | 3 | Ensured comprehensive metadata display of catalog books and strict validation behaviors for newly generated member profiles |
-| Authorization Testing | REQ-06, REQ-08 | 4 | Validated multi-role permission layers to ensure proper data isolation between the Librarian and regular Members |
-| State Transition Testing | REQ-05, REQ-08 | 4 | Audited status alterations of transactional records switching across "Borrowing", "Returned", and "Overdue" lifetimes |
-| Security Testing | REQ-04 | 1 | Verified system behavior and safety actions when a user session expires suddenly |
-
----
+| ----- | ----- | ----- | ----- |
+| Equivalence Partitioning (EP) | REQ-01, REQ-03, REQ-04, REQ-05, REQ-07 | 21 | Segmented the input domain into valid and invalid partitions to optimize test coverage. |
+| Boundary Value Analysis (BVA) | REQ-01, REQ-04, REQ-05, REQ-06 | 5 | Tested critical edge boundaries including maximum concurrent borrow quantities and date equality (dueDate = currentDate). |
+| Functional Testing | REQ-02, REQ-07 | 3 | Ensured comprehensive metadata display of catalog books and strict validation behaviors for newly generated member profiles. |
+| Authorization Testing | REQ-06, REQ-08 | 4 | Validated multi-role permission layers to ensure proper data isolation between the Librarian and regular Members. |
+| State Transition Testing | REQ-05, REQ-08 | 4 | Audited status alterations of transactional records switching across "Borrowing", "Returned", and "Overdue" lifetimes. |
+| Security Testing | REQ-04 | 1 | Verified system behavior and safety actions when a user session expires suddenly. |
 
 ## 4. Phân tích chất lượng phần mềm
+
 ### 4.1. Điểm mạnh
-----Authentication Security: The login infrastructure functions properly, securely authorizing credentials and catching blank inputs.
-----Basic Catalog Integrity: Basic browsing operations, database loading, detailed item summaries, and standard keyword queries operate with consistent stability.
-----Standard Operational Flow: The standard processes for straightforward borrowing checkouts and timely book returns run reliably without system interruption.
+-Authentication Security: The login infrastructure functions properly, securely authorizing credentials and catching blank inputs.
+-Basic Catalog Integrity: Basic browsing operations, database loading, detailed item summaries, and standard keyword queries operate with consistent stability.
+-Standard Operational Flow: The standard processes for straightforward borrowing checkouts and timely book returns run reliably without system interruption.
 
 ### 4.2. Điểm yếu
-----Broken Authorization Framework: Regular member profiles can easily cross-reference, view, and directly edit or trigger book returns on records belonging to foreign accounts.----Business Rule Bypass: Lack of strict back-end enforcement regarding the maximum loan ceiling allows users to check out a 4th book completely undetected.
-----Flawed Boundary Logic: The automated calculation tool contains arithmetic errors that flag loans as overdue on the exact day they are due.
-----String Normalization Flaws: The search algorithm does not strip accent markers, preventing users from pulling up results using un-accented keywords.
-
----
+-Broken Authorization Framework: Regular member profiles can easily cross-reference, view, and directly edit or trigger book returns on records belonging to foreign accounts.
+-Business Rule Bypass: Lack of strict back-end enforcement regarding the maximum loan ceiling allows users to check out a 4th book completely undetected.
+-Flawed Boundary Logic: The automated calculation tool contains arithmetic errors that flag loans as overdue on the exact day they are due.
+-String Normalization Flaws: The search algorithm does not strip accent markers, preventing users from pulling up results using un-accented keywords.
 
 ## 5. Đề xuất ưu tiên sửa lỗi
 
-| Thứ tự | Bug | Mức độ | Lý do ưu tiên |
-|--------|-----|--------|---------------|
+| Thứ tự | Bug ID | Mức độ | Lý do ưu tiên |
+| ----- | ----- | ----- | ----- |
 | 1 | BUG-06 | High | Security vulnerability allowing users to modify or return transactions belonging to other members, potentially corrupting transaction history and audit logs. |
 | 2 | BUG-05 | High | Privacy and authorization issue where regular members can access sensitive information of other users. |
 | 3 | BUG-02 | High | Core business logic failure allowing users to borrow more than the maximum limit of 3 books, causing inventory inconsistencies. |
