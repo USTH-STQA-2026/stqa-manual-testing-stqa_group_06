@@ -89,11 +89,11 @@
 | Chỉ số | Giá trị |
 |--------|---------|
 | Tổng số test case | 41 |
-| Pass | 33 |
-| Fail | 8 |
+| Pass | 32 |
+| Fail | 9 |
 | Blocked | 0 |
 | Not Run | 0 |
-| **Tỷ lệ Pass** | 82.5% |
+| **Tỷ lệ Pass** | 78.05% |
 
 ### Kết quả theo nhóm chức năng
 
@@ -101,10 +101,10 @@
 |---|---|---|---|---|
 | Login | 4 | 4 | 0 | 100% |
 | Book Management | 3 | 3 | 0 | 100% |
-| Search | 7 | 6 | 1 | 85.7% |
-| Borrow Book | 8 | 7 | 1 | 87.5% |
+| Search | 8 | 6 | 2 | 85.7% |
+| Borrow Book | 8 | 7 | 1 | 75% |
 | Return Book | 3 | 3 | 0 | 100% |
 | Overdue Management | 4 | 3 | 1 | 75% |
-| Member Management | 4 | 3 | 1 | 75% |
+| Member Management | 4 | 2 | 2 | 50% |
 | Borrow Records | 7 | 4 | 3 | 57.1% |
-| Total | 40 | 33 | 7 | 82.5% |
+| Total | 41 | 32 | 9 | 82.5% |
