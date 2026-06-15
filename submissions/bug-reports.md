@@ -3,83 +3,150 @@
 | Thông tin | |
 |---|---|
 | **Nhóm** | STQA_Group_06 |
-| **Ngày báo cáo** | 22/05/2026 |
-
+| **Ngày báo cáo** | 19/05/2026 |
 
 ## BUG-01
 
 | Thuộc tính | Chi tiết |
 |-----------|---------|
-| **Mã lỗi** |   |
-| **TC liên quan** | TC-13 |
+| **Mã lỗi** | BUG-01 |
+| **TC liên quan** | TC-12 |
 | **REQ liên quan** | REQ-03 |
-| **Mức độ** | Low |
+| **Mức độ** | Medium |
 | **Người phát hiện** | Nguyễn Khắc Trường |
-| **Ngày phát hiện** | 22/05/2026 |
+| **Ngày phát hiện** | 19/05/2026 |
 | **Trạng thái** | Open |
 
 **Tiêu đề:**
-System does not display books when searching without Vietnamese accents
+Category filter is case-sensitive and returns different results for uppercase and lowercase keywords
 
 **Môi trường:**
-- Browser: Chrome 148
-- Operating System: Window
-- Interface Language: Vietnamese
+- Trình duyệt: Chrome 148
+- Hệ điều hành: macOS
+- Ngôn ngữ giao diện: Tiếng Việt
 
 **Điều kiện tiên quyết:**
-- User has successfully logged into the system
-- Search function is available
-- Book: BOOK001 – "Lập trình Flutter cơ bản" exists in the database
+- User has successfully logged into the Library Management System
+- Category filter function is available
+- Books belonging to the category "Công Nghệ" exist in the database
 
 **Bước tái hiện:**
 1. Log into the Library Management System
-2. Navigate to the Search Book function
-3. Enter the keyword: lap trinh flutter
-4. Press Search or Enter
+2. Navigate to the Search/Filter Book function
+3. Enter the category keyword "Công Nghệ"
+4. Record the displayed results
+5. Clear the filter field
+6. Enter the category keyword "công nghệ"
+7. Compare the returned results
 
 **Kết quả mong đợi:**
-- The system should display: BOOK001 – “Lập trình Flutter cơ bản”
-- The search function should support searching without Vietnamese accents
+- The system should return the same list of books for both keywords:
+    "Công Nghệ"
+    "công nghệ"
+- Category filtering should be case-insensitive
 
 **Kết quả thực tế:**
-- No book is displayed
-- The search result list is empty even though BOOK001 – “Lập trình Flutter cơ bản” exists in the database
+- The results returned for "Công Nghệ" and "công nghệ" are different
+- Some books in the Technology category are not displayed when using one of the keyword formats
 
 **Tác động:**
-- Users cannot search books using keywords without Vietnamese accents
-- This reduces search usability and negatively affects user experience, especially for users who type without Vietnamese input methods
+- Users may receive inconsistent search/filter results depending on letter case
+- Reduces usability and reliability of the search/filter feature
+- May cause users to believe books are missing from the system
 
 **Mức độ**
-- Low
+Medium
 
 **Minh chứng:**
-<img width="2435" height="1600" alt="image" src="https://github.com/user-attachments/assets/c64349ef-47b9-4427-8845-83a2652444e1" />
+
 
 **Đề xuất xử lý:**
-- Implement accent-insensitive search processing
-- Normalize Vietnamese accented characters before comparing search keywords
-- Example:Lập trình Flutter → lap trinh flutter
----
+- Implement case-insensitive comparison for category filtering
+- Convert both stored category values and user input to a common format (e.g., lowercase) before comparison
+- Verify filtering behavior with uppercase, lowercase, and mixed-case inputs
 
 ## BUG-02
 
 | Thuộc tính | Chi tiết |
 |-----------|---------|
-| **Mã lỗi** | BUG-01 |
-| **TC liên quan** | TC-18 |
+| **Mã lỗi** | BUG-02 |
+| **TC liên quan** | TC-13 |
+| **REQ liên quan** | REQ-03 |
+| **Mức độ** | Medium |
+| **Người phát hiện** | Nguyễn Mạnh Tú |
+| **Ngày phát hiện** | 19/05/2026 |
+| **Trạng thái** | Open |
+
+**Tiêu đề:**
+Search keyword is ignored when combining Search and Category Filter
+
+**Môi trường:**
+- Trình duyệt: Chrome 148
+- Hệ điều hành: macOS
+- Ngôn ngữ giao diện: Tiếng Việt
+
+**Điều kiện tiên quyết:**
+- User has successfully logged into the Library Management System
+- Search and Category Filter functions are available
+- Books in category "Kinh tế" exist in the database
+- No book in category "Kinh tế" contains the keyword "Flutter"
+
+**Bước tái hiện:**
+1. Log into the Library Management System
+2. Navigate to the Search Book function
+3. Enter the keyword "Flutter" in the Search box
+4. Enter the category "Kinh tế" in the Category Filter box
+5. Execute the search/filter operation
+
+**Kết quả mong đợi:**
+- No book should be displayed because no book matches both conditions:
+    Keyword = "Flutter"
+    Category = "Kinh tế"
+- The system should apply Search and Category Filter simultaneously
+
+**Kết quả thực tế:**
+- The system displays:
+    BOOK007
+    BOOK014
+    BOOK015
+- All displayed books belong to the "Kinh tế" category but do not match the search keyword "Flutter"
+- The search keyword is ignored and only the category filter is applied
+
+**Tác động:**
+- Users receive incorrect search results when combining multiple filtering conditions
+- Search accuracy is reduced and may lead users to incorrect conclusions about available books
+- The Search and Filter functions do not work together as expected
+
+**Mức độ**
+Medium
+
+**Minh chứng:**
+
+
+**Đề xuất xử lý:**
+- Ensure that Search and Category Filter conditions are combined using AND logic
+- Validate that results satisfy both the search keyword and selected category before displaying
+- Add automated tests for combined search/filter scenarios with matching and non-matching datasets
+
+## BUG-03
+
+| Thuộc tính | Chi tiết |
+|-----------|---------|
+| **Mã lỗi** | BUG-03 |
+| **TC liên quan** | TC-20 |
 | **REQ liên quan** | REQ-04 |
 | **Mức độ** | High |
-| **Người phát hiện** | Nguyễn Mạnh Tú |
-| **Ngày phát hiện** | 22/05/2026 |
+| **Người phát hiện** | Nguyễn Đình Thi |
+| **Ngày phát hiện** | 19/05/2026 |
 | **Trạng thái** | Open |
 
 **Tiêu đề:**
 System allows borrowing books beyond the maximum borrowing limit instead of rejecting the request
 
 **Môi trường:**
-- Browser: Chrome 148
-- Operating System: Window
-- Interface Language: Vietnamese
+- Trình duyệt: Chrome 148
+- Hệ điều hành: macOS
+- Ngôn ngữ giao diện: Tiếng Việt
 
 **Điều kiện tiên quyết:**
 - User has logged into the system successfully
@@ -107,7 +174,7 @@ System allows borrowing books beyond the maximum borrowing limit instead of reje
 - Users can borrow more books than permitted, causing inaccurate borrowing records and reducing control over library resources.
 
 **Mức độ**
-- High
+High
 
 **Minh chứng:**
 <img width="2435" height="1600" alt="image" src="https://github.com/user-attachments/assets/01dd3928-33eb-47ba-84e4-059729ac5cfa" />
@@ -118,15 +185,76 @@ System allows borrowing books beyond the maximum borrowing limit instead of reje
 
 ---
 
-## BUG-03
+## BUG-04
 
 | Thuộc tính | Chi tiết |
 |-----------|---------|
-| **Mã lỗi** | BUG-03 |
-| **TC liên quan** | TC-28 |
+| **Mã lỗi** | BUG-04 |
+| **TC liên quan** | TC-21 |
+| **REQ liên quan** | REQ-04 |
+| **Mức độ** | Medium |
+| **Người phát hiện** | Nguyễn Minh Quang |
+| **Ngày phát hiện** | 19/05/2026 |
+| **Trạng thái** | Open |
+
+**Tiêu đề:**
+System displays incorrect notification message for expired member account during book borrowing
+
+**Môi trường:**
+- Trình duyệt: Chrome 148
+- Hệ điều hành: macOS
+- Ngôn ngữ giao diện: Tiếng Việt
+
+**Điều kiện tiên quyết:**
+- User is logged in as member MEM005
+- Member account status is Expired
+- An available book exists in the system
+
+**Bước tái hiện:**
+1. Log into the Library Management System as MEM005
+2. Select a book with status Available
+3. Click Borrow Book
+4. Observe the system notification
+
+**Kết quả mong đợi:**
+- The system should block the borrowing request
+- The notification message should clearly indicate:
+    "Member account is expired"
+    or an equivalent message informing the user that the membership has expired
+
+**Kết quả thực tế:**
+- The borrowing request is blocked
+- The system displays the message:
+    "Member is suspended"
+- The displayed message does not match the actual member status (Expired)
+
+**Tác động:**
+- Users receive misleading information regarding their account status
+- Difficult for users to understand the real reason why borrowing is denied
+- May increase support requests and confusion when resolving account issues
+
+**Mức độ**
+Medium
+
+**Minh chứng:**
+
+
+**Đề xuất xử lý:**
+- Correct the validation logic to return the appropriate message for each member status
+- Ensure that:
+    Expired → "Member account is expired"
+    Suspended → "Member account is suspended"
+- Add test cases to verify all membership status notifications
+
+## BUG-05
+
+| Thuộc tính | Chi tiết |
+|-----------|---------|
+| **Mã lỗi** | BUG-05 |
+| **TC liên quan** | TC-31 |
 | **REQ liên quan** | REQ-07 |
-| **Mức độ** | High |
-| **Người phát hiện** | Nguyễn Đình Thi |
+| **Mức độ** | Medium |
+| **Người phát hiện** | Nguyễn Đức Anh Tuấn |
 | **Ngày phát hiện** | 19/05/2026 |
 | **Trạng thái** | Open |
 
@@ -134,9 +262,9 @@ System allows borrowing books beyond the maximum borrowing limit instead of reje
 System displays “Invalid Email” for valid email format during member creation
 
 **Môi trường:**
-- Browser: Chrome 148
-- Operating System: Window
-- Interface Language: Vietnamese
+- Trình duyệt: Chrome 148
+- Hệ điều hành: macOS
+- Ngôn ngữ giao diện: Tiếng Việt
 
 **Điều kiện tiên quyết:**
 - User is logged into the system as Librarian
@@ -162,7 +290,7 @@ System displays “Invalid Email” for valid email format during member creatio
 - This prevents librarians from creating new members and affects member management functionality
 
 **Mức độ**
-- Medium
+Medium
 
 **Minh chứng:**
 <img width="2530" height="1380" alt="image" src="https://github.com/user-attachments/assets/7cfb2c6a-f517-4c71-b0c0-a2f72a17b6a6" />
@@ -173,15 +301,15 @@ System displays “Invalid Email” for valid email format during member creatio
 
 ---
 
-## BUG-04
+## BUG-06
 
 | Thuộc tính | Chi tiết |
 |-----------|---------|
-| **Mã lỗi** | BUG-04 |
-| **TC liên quan** | TC-29 |
+| **Mã lỗi** | BUG-06 |
+| **TC liên quan** | TC-32 |
 | **REQ liên quan** | REQ-07 |
-| **Mức độ** | High |
-| **Người phát hiện** | Nguyễn Minh Quang |
+| **Mức độ** | Medium |
+| **Người phát hiện** | Nguyễn Đình Thi |
 | **Ngày phát hiện** | 19/05/2026 |
 | **Trạng thái** | Open |
 
@@ -189,9 +317,9 @@ System displays “Invalid Email” for valid email format during member creatio
 System allows member creation with email missing “.” in domain instead of displaying validation error
 
 **Môi trường:**
-- Browser: Chrome 148
-- Operating System: Window
-- Interface Language: Vietnamese
+- Trình duyệt: Chrome 148
+- Hệ điều hành: macOS
+- Ngôn ngữ giao diện: Tiếng Việt
 
 **Điều kiện tiên quyết:**
 - User is logged into the system as Librarian
@@ -217,23 +345,21 @@ System allows member creation with email missing “.” in domain instead of di
 - This affects data quality and may cause failures in notifications and member communication
 
 **Mức độ**
-- Medium
+Medium
 
 **Minh chứng:**
-<img width="2536" height="1392" alt="image" src="https://github.com/user-attachments/assets/60fee26a-97ae-4799-b444-99a02d9835c6" />
-<img width="2546" height="1393" alt="image" src="https://github.com/user-attachments/assets/591abe73-759d-492f-a2d4-b3aa0bd34352" />
+<img width="2536" height="1392" alt="image" src="https://github.com/user-attachments/assets/60fee26a-97ae-4799-b444-99a02d9835c6" /><img width="2546" height="1393" alt="image" src="https://github.com/user-attachments/assets/591abe73-759d-492f-a2d4-b3aa0bd34352" />
 
 **Đề xuất xử lý:**
 - Add email format validation before member creation
 - The system should verify the existence of: @ and . in the domain part
 
-
-## BUG-05
+## BUG-07
 
 | Thuộc tính | Chi tiết |
 |-----------|---------|
-| **Mã lỗi** | BUG-05 |
-| **TC liên quan** | TC-32 |
+| **Mã lỗi** | BUG-07 |
+| **TC liên quan** | TC-36 |
 | **REQ liên quan** | REQ-08 |
 | **Mức độ** | High |
 | **Người phát hiện** | Nguyễn Đức Anh Tuấn |
@@ -244,9 +370,9 @@ System allows member creation with email missing “.” in domain instead of di
 System allows members to view other members’ borrowing records instead of denying access
 
 **Môi trường:**
-- Browser: Chrome 148
-- Operating System: macOS
-- Interface Language: Vietnamese
+- Trình duyệt: Chrome 148
+- Hệ điều hành: macOS
+- Ngôn ngữ giao diện: Tiếng Việt
 
 **Điều kiện tiên quyết:**
 - User is logged into the system as Member MEM002
@@ -272,7 +398,7 @@ System allows members to view other members’ borrowing records instead of deny
 - Unauthorized users can access data that should be private, affecting confidentiality and system security
 
 **Mức độ**
-- High
+High
 
 **Minh chứng:**
 <img width="1919" height="869" alt="image" src="https://github.com/user-attachments/assets/ddebbaaf-e29c-4f17-9fdd-ea5e20574870" />
@@ -284,15 +410,15 @@ System allows members to view other members’ borrowing records instead of deny
     Librarian → view all records
 - If the logged-in member attempts to access another member’s records, the system should reject the request
 
-## BUG-06
+## BUG-08
 
 | Thuộc tính | Chi tiết |
 |-----------|---------|
-| **Mã lỗi** | BUG-06 |
-| **TC liên quan** | TC-33 |
+| **Mã lỗi** | BUG-08 |
+| **TC liên quan** | TC-37 |
 | **REQ liên quan** | REQ-08 |
 | **Mức độ** | High |
-| **Người phát hiện** | Nguyễn Đình Thi |
+| **Người phát hiện** | Nguyễn Khắc Trường |
 | **Ngày phát hiện** | 19/05/2026 |
 | **Trạng thái** | Open |
 
@@ -300,9 +426,9 @@ System allows members to view other members’ borrowing records instead of deny
 System allows members to access and modify other members’ borrowing records
 
 **Môi trường:**
-- Browser: Chrome 148
-- Operating System: Window
-- Interface Language: Vietnamese
+- Trình duyệt: Chrome 148
+- Hệ điều hành: macOS
+- Ngôn ngữ giao diện: Tiếng Việt
 
 **Điều kiện tiên quyết:**
 - User is logged into the system as MEM006
@@ -333,7 +459,7 @@ System allows members to access and modify other members’ borrowing records
 - Users can alter records that do not belong to them.
 
 **Mức độ**
-- High
+High
 
 **Minh chứng:**
 <img width="1919" height="926" alt="image" src="https://github.com/user-attachments/assets/45538c62-555c-44a3-bfca-8eaca023df2c" />
@@ -351,15 +477,15 @@ System allows members to access and modify other members’ borrowing records
 - Any attempt to access another member’s record should be blocked
 
 ---
-## BUG-07
+## BUG-09
 
 | Thuộc tính | Chi tiết |
 |-----------|---------|
-| **Mã lỗi** | BUG-07 |
-| **TC liên quan** | TC-35 |
+| **Mã lỗi** | BUG-09 |
+| **TC liên quan** | TC-39 |
 | **REQ liên quan** | REQ-08 |
-| **Mức độ** | High |
-| **Người phát hiện** | Nguyễn Đức Anh Tuấn |
+| **Mức độ** | Medium |
+| **Người phát hiện** | Nguyễn Minh Quang |
 | **Ngày phát hiện** | 19/05/2026 |
 | **Trạng thái** | Open |
 
@@ -367,9 +493,9 @@ System allows members to access and modify other members’ borrowing records
 System displays book status as “Borrowing” but no corresponding borrow record exists
 
 **Môi trường:**
-- Browser: Chrome 148
-- Operating System: macOS
-- Interface Language: Vietnamese
+- Trình duyệt: Chrome 148
+- Hệ điều hành: macOS
+- Ngôn ngữ giao diện: Tiếng Việt
 
 **Điều kiện tiên quyết:**
 - Book BOOK006 exists in the system.
@@ -390,6 +516,7 @@ System displays book status as “Borrowing” but no corresponding borrow recor
 **Kết quả thực tế:**
 - Book BOOK006 is displayed with status: “Borrowing”
 - However, no corresponding borrow record exists in the system.
+- The issue was reproduced for MEM003 only.
 
 **Tác động:**
 - TThe system contains inconsistent borrowing data.
@@ -400,15 +527,17 @@ System displays book status as “Borrowing” but no corresponding borrow recor
     + Data consistency and auditing
 
 **Mức độ**
-- High
+Medium 
 
 **Minh chứng:**
-<img width="1888" height="131" alt="image" src="https://github.com/user-attachments/assets/5d50a834-7a27-42f0-b818-fea0bbd9d2e3" />
-<img width="1919" height="822" alt="image" src="https://github.com/user-attachments/assets/0a840fe7-85ae-498b-a395-7cbbafce7851" />
+<img width="1888" height="131" alt="image" src="https://github.com/user-attachments/assets/5d50a834-7a27-42f0-b818-fea0bbd9d2e3" /><img width="1919" height="822" alt="image" src="https://github.com/user-attachments/assets/0a840fe7-85ae-498b-a395-7cbbafce7851" />
 
 **Đề xuất xử lý:**
-- Verify synchronization logic between book status and borrowing records 
+- Verify synchronization logic between book status and borrowing records for MEM003
 - Rule:
     Book status = Borrowing
+    → Corresponding borrow record must exist
+
+
     → Corresponding borrow record must exist
 
